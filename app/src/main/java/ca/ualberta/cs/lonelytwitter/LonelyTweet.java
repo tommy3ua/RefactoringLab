@@ -4,19 +4,12 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
 
-public class NormalLonelyTweet implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+/**
+ * Created by tommy3 on 11/17/16.
+ */
+public class LonelyTweet implements Serializable {
 	protected Date tweetDate;
 	protected String tweetBody;
-
-	public NormalLonelyTweet() {
-	}
-
-	public NormalLonelyTweet(String text, Date date) {
-		this.tweetDate = date;
-		this.tweetBody = text;
-	}
 
 	public Date getTweetDate() {
 		return tweetDate;
@@ -52,10 +45,5 @@ public class NormalLonelyTweet implements Serializable {
 		}
 
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return getTweetDate() + " | " + getTweetBody() ;
 	}
 }

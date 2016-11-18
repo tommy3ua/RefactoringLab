@@ -16,8 +16,8 @@ public class LonelyTwitterActivity extends Activity {
 	private EditText bodyText;
 	private ListView oldTweetsList;
 
-	private List<NormalLonelyTweet> tweets;
-	private ArrayAdapter<NormalLonelyTweet> adapter;
+	private List<LonelyTweet> tweets;
+	private ArrayAdapter<LonelyTweet> adapter;
 	private TweetsFileManager tweetsProvider;
 
 	@Override
@@ -43,9 +43,13 @@ public class LonelyTwitterActivity extends Activity {
 	public void save(View v) {
 		String text = bodyText.getText().toString();
 
-		NormalLonelyTweet tweet;
-
-		tweet = new NormalLonelyTweet(text, new Date());
+		LonelyTweet tweet;
+		if (text.contains("*")) {
+			tweet = new ImportantLonelyTweet(text);
+		}
+        else {
+            tweet = new NormalLonelyTweet(text);
+        }
 
 		//TODO: use different sub-classes (Normal or Important) based on usage of "*" in the text.
 		
